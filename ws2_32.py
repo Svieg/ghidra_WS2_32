@@ -142,11 +142,13 @@ ordinals = {'Ordinal_1' : 'accept',
 # Get imports
 sm = currentProgram.getSymbolTable()
 symb = sm.getExternalSymbols()
-number_of_symbols = len(symb)
+symbols = []
+for s in symb:
+    symbols.append(s)
+number_of_symbols = len(symbols)
 monitor.initialize(number_of_symbols)
-for i in range():
+for symbol in symbols:
     monitor.incrementProgress(1) # update the progress
-    symbol = symb[i]
     parent_namespace = symbol.getParentNamespace().getName()
     symbol_name = symbol.getName()
     monitor.checkCanceled() # check to see if the user clicked cancel
